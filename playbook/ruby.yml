@@ -1,0 +1,50 @@
+
+# ruby.yml
+
+- name: Update pkgs
+  apt: update_cache=yes
+
+- name: Upgrade pkgs
+  apt: upgrade=full
+
+- name: Install basic server pkgs
+  apt: pkg={{ item }} force=yes update_cache=yes
+  with_items:
+    - build-essential
+    - git
+    - autoconf
+    - bison
+    - libssl-dev
+    - libyaml-dev
+    - libreadline6
+    - libreadline6-dev
+    - zlib1g
+    - zlib1g-dev
+
+- name: Install rbenv
+  git: repo=git://github.com/sstephenson/rbenv.git
+       dest=~/.rbenv
+  sudo: yes
+  sudo_user: vagrant
+
+- name: Install ruby-build
+  git: repo=git://github.com/sstephenson/ruby-build.git
+       dest=~/.rbenv/plugins/ruby-build
+  sudo: yes
+  sudo_user: vagrant
+
+- name: reload ~/.zshrc
+  shell: source ~/.zshrc
+  sudo: yes
+  sudo_user: vagrant
+
+- name: Install ruby
+  shell: rbenv install 2.1.2
+  args:
+    chdir: ~ 
+  sudo: yes
+  sudo_user: vagrant
+
+
+
+

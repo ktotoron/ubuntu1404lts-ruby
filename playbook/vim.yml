@@ -1,0 +1,56 @@
+---
+
+# vim.yml
+
+- name: Update pkgs
+  apt: update_cache=yes
+
+- name: Upgrade pkgs
+  apt: upgrade=full
+
+- name: Install Vim Lua Packages
+  apt: pkg={{ item }} force=yes update_cache=yes
+  with_items:
+    - liblua5.2-dev
+    - liblua5.2-0
+    - lua5.2
+    - luajit
+    - vim
+    - vim-nox
+    - vim-gtk
+    - vim-gnome
+    - vim-athena
+
+
+- name: create directory for NeoBundle
+  shell: mkdir -p ~/.vim/bundle
+  sudo: yes
+  sudo_user: vagrant
+
+- name: Copy NeoBundle From Github
+  git: repo=git://github.com/Shougo/neobundle.vim
+       dest=~/.vim/bundle/neobundle.vim
+  sudo: yes
+  sudo_user: vagrant
+
+- name: create_vim_directory
+  file: path=~/.settings/vim/ state=directory
+  sudo: yes
+  sudo_user: vagrant
+
+- name: copy .vimrc for gauche
+  copy: src=./vim/src/ruby.vimrc dest=~/.settings/vim/ruby.vimrc
+  sudo: yes
+  sudo_user: vagrant
+
+- name: Install .vimrc for gauche 
+  command: ln -s ~/.settings/vim/ruby.vimrc ~/.vimrc creates=~/.vimrc
+  sudo: yes
+  sudo_user: vagrant
+
+- name: Install NeoBundle
+  shell: vim +":NeoBundleInstall" +:q 
+  sudo: yes
+  sudo_user: vagrant
+
+
