@@ -27,67 +27,68 @@ NeoBundle 'Shougo/vimproc.vim', {
       \    },
       \ }
 
+
 " unite.vim
 NeoBundle 'Shougo/unite.vim'
 
 " vim-niji(lisp用括弧)
 NeoBundle 'amdt/vim-niji'
 
-" for ruby
-NeoBundle 'Shougo/neosnippet', {
-      \ 'autoload' : {
-      \   'commands' : ['NeoSnippetEdit', 'NeoSnippetSource'],
-      \   'filetypes' : 'snippet',
-      \   'insert' : 1,
-      \   'unite_sources' : ['snippet', 'neosnippet/user', 'neosnippet/runtime'],
-      \ }}
- 
-" for ruby
-NeoBundle 'tpope/vim-rails', { 'autoload' : {
-      \ 'filetypes' : ['haml', 'ruby', 'eruby'] }}
- 
-" for ruby
-NeoBundle 'alpaca-tc/vim-endwise.git', {
-      \ 'autoload' : {
-      \   'insert' : 1,
-      \ }}
- 
- 
-" for ruby
-NeoBundle 'basyura/unite-rails', {
-      \ 'depends' : 'Shougo/unite.vim',
-      \ 'autoload' : {
-      \   'unite_sources' : [
-      \     'rails/bundle', 'rails/bundled_gem', 'rails/config',
-      \     'rails/controller', 'rails/db', 'rails/destroy', 'rails/features',
-      \     'rails/gem', 'rails/gemfile', 'rails/generate', 'rails/git', 'rails/helper',
-      \     'rails/heroku', 'rails/initializer', 'rails/javascript', 'rails/lib', 'rails/log',
-      \     'rails/mailer', 'rails/model', 'rails/rake', 'rails/route', 'rails/schema', 'rails/spec',
-      \     'rails/stylesheet', 'rails/view'
-      \   ]
-      \ }}
- 
- 
-" for ruby
-NeoBundle 'alpaca-tc/neorspec.vim', {
-      \ 'depends' : ['alpaca-tc/vim-rails', 'tpope/vim-dispatch'],
-      \ 'autoload' : {
-      \   'commands' : ['RSpec', 'RSpecAll', 'RSpecCurrent', 'RSpecNearest', 'RSpecRetry']
-      \ }}
- 
-" for ruby
-NeoBundle 'alpaca-tc/alpaca_tags', {
-      \ 'depends': 'Shougo/vimproc',
-      \ 'autoload' : {
-      \   'commands': ['TagsUpdate', 'TagsSet', 'TagsBundle']
-      \ }}
- 
-" for ruby
-NeoBundle 'tsukkee/unite-tag', {
-      \ 'depends' : ['Shougo/unite.vim'],
-      \ 'autoload' : {
-      \   'unite_sources' : ['tag', 'tag/file', 'tag/include']
-      \ }}
+
+    "ruby--------------------------------------------------
+    NeoBundleLazy 'Shougo/neosnippet', {
+          \ 'autoload' : {
+          \   'commands' : ['NeoSnippetEdit', 'NeoSnippetSource'],
+          \   'filetypes' : 'snippet',
+          \   'insert' : 1,
+          \   'unite_sources' : ['snippet', 'neosnippet/user', 'neosnippet/runtime'],
+          \ }}
+     
+    NeoBundle 'tpope/vim-rails', { 'autoload' : {
+          \ 'filetypes' : ['haml', 'ruby', 'eruby'] }}
+     
+    NeoBundleLazy 'alpaca-tc/vim-endwise.git', {
+          \ 'autoload' : {
+          \   'insert' : 1,
+          \ }}
+     
+    NeoBundleLazy 'edsono/vim-matchit', { 'autoload' : {
+          \ 'filetypes': 'ruby',
+          \ 'mappings' : ['nx', '%'] }}
+     
+    NeoBundleLazy 'basyura/unite-rails', {
+          \ 'depends' : 'Shougo/unite.vim',
+          \ 'autoload' : {
+          \   'unite_sources' : [
+          \     'rails/bundle', 'rails/bundled_gem', 'rails/config',
+          \     'rails/controller', 'rails/db', 'rails/destroy', 'rails/features',
+          \     'rails/gem', 'rails/gemfile', 'rails/generate', 'rails/git', 'rails/helper',
+          \     'rails/heroku', 'rails/initializer', 'rails/javascript', 'rails/lib', 'rails/log',
+          \     'rails/mailer', 'rails/model', 'rails/rake', 'rails/route', 'rails/schema', 'rails/spec',
+          \     'rails/stylesheet', 'rails/view'
+          \   ]
+          \ }}
+     
+    NeoBundleLazy 'alpaca-tc/neorspec.vim', {
+          \ 'depends' : ['alpaca-tc/vim-rails', 'tpope/vim-dispatch'],
+          \ 'autoload' : {
+          \   'commands' : ['RSpec', 'RSpecAll', 'RSpecCurrent', 'RSpecNearest', 'RSpecRetry']
+          \ }}
+     
+    NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+          \ 'depends': 'Shougo/vimproc',
+          \ 'autoload' : {
+          \   'commands': ['TagsUpdate', 'TagsSet', 'TagsBundle']
+          \ }}
+     
+    NeoBundleLazy 'tsukkee/unite-tag', {
+          \ 'depends' : ['Shougo/unite.vim'],
+          \ 'autoload' : {
+          \   'unite_sources' : ['tag', 'tag/file', 'tag/include']
+          \ }}
+    
+    "/ruby--------------------------------------------------
+
 
 
 
@@ -126,6 +127,8 @@ let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" set omni heavy
+let g:neocomplete#sources#omni#input_patterns = 1
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
@@ -136,6 +139,8 @@ let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
+  " neocomplete for ruby
+  let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 endif
 
 " Enable omni completion.
@@ -144,6 +149,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
 
 "/NeoComplete-------------------------------------
 

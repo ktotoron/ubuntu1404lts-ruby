@@ -22,6 +22,13 @@
     - vim-athena
 
 
+- name: Install ctags
+  apt: pkg={{ item }} force=yes update_cache=yes
+  with_items:
+    - ctags
+
+
+
 - name: create directory for NeoBundle
   shell: mkdir -p ~/.vim/bundle
   sudo: yes
