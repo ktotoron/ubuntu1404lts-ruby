@@ -35,7 +35,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'amdt/vim-niji'
 
 " for ruby
-NeoBundleLazy 'Shougo/neosnippet', {
+NeoBundle 'Shougo/neosnippet', {
       \ 'autoload' : {
       \   'commands' : ['NeoSnippetEdit', 'NeoSnippetSource'],
       \   'filetypes' : 'snippet',
@@ -48,18 +48,14 @@ NeoBundle 'tpope/vim-rails', { 'autoload' : {
       \ 'filetypes' : ['haml', 'ruby', 'eruby'] }}
  
 " for ruby
-NeoBundleLazy 'alpaca-tc/vim-endwise.git', {
+NeoBundle 'alpaca-tc/vim-endwise.git', {
       \ 'autoload' : {
       \   'insert' : 1,
       \ }}
  
-" for ruby
-NeoBundleLazy 'edsono/vim-matchit', { 'autoload' : {
-      \ 'filetypes': 'ruby',
-      \ 'mappings' : ['nx', '%'] }}
  
 " for ruby
-NeoBundleLazy 'basyura/unite-rails', {
+NeoBundle 'basyura/unite-rails', {
       \ 'depends' : 'Shougo/unite.vim',
       \ 'autoload' : {
       \   'unite_sources' : [
@@ -72,27 +68,23 @@ NeoBundleLazy 'basyura/unite-rails', {
       \   ]
       \ }}
  
-" for ruby
-NeoBundleLazy 'taka84u9/vim-ref-ri', {
-      \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref'],
-      \ 'autoload': { 'filetypes': g:my.ft.ruby_files } }
  
 " for ruby
-NeoBundleLazy 'alpaca-tc/neorspec.vim', {
+NeoBundle 'alpaca-tc/neorspec.vim', {
       \ 'depends' : ['alpaca-tc/vim-rails', 'tpope/vim-dispatch'],
       \ 'autoload' : {
       \   'commands' : ['RSpec', 'RSpecAll', 'RSpecCurrent', 'RSpecNearest', 'RSpecRetry']
       \ }}
  
 " for ruby
-NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+NeoBundle 'alpaca-tc/alpaca_tags', {
       \ 'depends': 'Shougo/vimproc',
       \ 'autoload' : {
       \   'commands': ['TagsUpdate', 'TagsSet', 'TagsBundle']
       \ }}
  
 " for ruby
-NeoBundleLazy 'tsukkee/unite-tag', {
+NeoBundle 'tsukkee/unite-tag', {
       \ 'depends' : ['Shougo/unite.vim'],
       \ 'autoload' : {
       \   'unite_sources' : ['tag', 'tag/file', 'tag/include']

@@ -38,12 +38,12 @@
   sudo: yes
   sudo_user: vagrant
 
-- name: copy .vimrc for gauche
+- name: copy .vimrc for ruby
   copy: src=./vim/src/ruby.vimrc dest=~/.settings/vim/ruby.vimrc
   sudo: yes
   sudo_user: vagrant
 
-- name: Install .vimrc for gauche 
+- name: Install .vimrc for ruby
   command: ln -s ~/.settings/vim/ruby.vimrc ~/.vimrc creates=~/.vimrc
   sudo: yes
   sudo_user: vagrant
