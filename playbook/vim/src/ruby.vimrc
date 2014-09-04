@@ -14,7 +14,6 @@ endif
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-
 " neocomplete.vimのgitアドレス
 NeoBundle 'Shougo/neocomplete.vim'
 
@@ -146,42 +145,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" Enable omni for Ruby
-let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-
-" scheme
-let g:lisp_rainbow = 1
 "/NeoComplete-------------------------------------
-
-
-
-"vim-gdev-------------------------------------
-":Unite gosh_infoを実行します
-nmap gi <Plug>(gosh_info_start_search)
-":Unite カーソル位置のシンボルを初期値に:Unite gosh_infoを実行します
-nmap gk <Plug>(gosh_info_start_search_with_cur_keyword)
-imap <C-A> <Plug>(gosh_info_start_search_with_cur_keyword)
-
-"ginfoウィンドウのスクロールアップ・ダウン
-nmap <C-K> <Plug>(gosh_info_row_up)
-nmap <C-J> <Plug>(gosh_info_row_down)
-imap <C-K> <Plug>(gosh_info_row_up)
-imap <C-J> <Plug>(gosh_info_row_down)
-"ginfoウィンドウを閉じます
-nmap <C-C> <Plug>(gosh_info_close)
-imap <C-C> <Plug>(gosh_info_close)
-
-"カーソル位置のシンボルが定義されている場所にジャンプ
-nmap <F12> <Plug>(gosh_goto_define)
-nmap <F11> <Plug>(gosh_goto_define_split)
-
-" gosh-repl
-let g:neocomplete#keyword_patterns['gosh-repl'] = "[[:alpha:]+*/@$_=.!?-][[:alnum:]+*/@$_:=.!?-]*"
-vmap <CR> <Plug>(gosh_repl_send_block)
-
-"/vim-gdev-------------------------------------
-
-
 
 
 
