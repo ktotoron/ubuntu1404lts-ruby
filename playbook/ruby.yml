@@ -33,15 +33,11 @@
   sudo: yes
   sudo_user: vagrant
 
-- name: reload ~/.zshrc
-  shell: source ~/.zshrc
-  sudo: yes
-  sudo_user: vagrant
-
-- name: Install ruby
-  shell: rbenv install 2.1.2
+- name: Install ruby (1.9.3-p547)
+  shell: eval "$(~/.rbenv/bin/rbenv init -)" && ~/.rbenv/bin/rbenv install 1.9.3-p547
   args:
     chdir: ~ 
+    creates: ~/.rbenv/versions/1.9.3-p547/bin/ruby
   sudo: yes
   sudo_user: vagrant
 

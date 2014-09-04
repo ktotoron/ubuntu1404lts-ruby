@@ -7,5 +7,5 @@ source ~/.zshrc.antigen
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-rbenv global 2.1.2 
+# rbenv global 2.1.2 
 
