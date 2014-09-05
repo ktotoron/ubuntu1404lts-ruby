@@ -76,11 +76,32 @@ NeoBundle 'amdt/vim-niji'
           \ }}
      
     NeoBundle 'alpaca-tc/alpaca_tags', {
-          \ 'depends': 'Shougo/vimproc',
-          \ 'autoload' : {
-          \   'commands': ['TagsUpdate', 'TagsSet', 'TagsBundle']
-          \ }}
-     
+           \ 'rev' : 'v2.0',
+           \ 'depends': ['Shougo/vimproc'],
+           \ 'autoload' : {
+           \   'commands' : ['AlpacaTagsSet', 'AlpacaTagsBundle', 'AlpacaTagsCleanCache', 'AlpacaTagsUpdate'],
+           \ }}
+
+        "alpaca-tc/alpaca_tags--------------------------------------------------
+        let g:alpaca_tags_config = {
+                \ '_' : '-R --sort=yes --languages=+Ruby --languages=-js,JavaScript',
+                \ 'default' : '--languages=-css,scss,html,js,JavaScript',
+                \ 'js' : '--languages=+js',
+                \ '-js' : '--languages=-js,JavaScript',
+                \ 'vim' : '--languages=+Vim,vim',
+                \ 'php' : '--languages=+php',
+                \ '-vim' : '--languages=-Vim,vim',
+                \ '-style': '--languages=-css,scss,js,JavaScript,html',
+                \ 'scss' : '--languages=+scss --languages=-css',
+                \ 'css' : '--languages=+css',
+                \ 'java' : '--languages=+java $JAVA_HOME/src',
+                \ 'ruby': '--languages=+Ruby',
+                \ 'coffee': '--languages=+coffee',
+                \ '-coffee': '--languages=-coffee',
+                \ 'bundle': '--languages=+Ruby',
+                \ }
+        "/alpaca-tc/alpaca_tags--------------------------------------------------
+ 
     NeoBundle 'tsukkee/unite-tag', {
           \ 'depends' : ['Shougo/unite.vim'],
           \ 'autoload' : {
