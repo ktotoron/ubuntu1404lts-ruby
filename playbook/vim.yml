@@ -55,9 +55,9 @@
   sudo: yes
   sudo_user: vagrant
 
-- name: Install NeoBundle
-  shell: vim +":NeoBundleInstall" +:q 
-  sudo: yes
-  sudo_user: vagrant
+# - name: Install NeoBundle
+#   shell: vim +":NeoBundleInstall" +:q 
+#   sudo: yes
+#   sudo_user: vagrant
 
 
