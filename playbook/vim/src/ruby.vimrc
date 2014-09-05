@@ -77,7 +77,7 @@ NeoBundle 'amdt/vim-niji'
      
     NeoBundle 'alpaca-tc/alpaca_tags', {
            \ 'rev' : 'v2.0',
-           \ 'depends': ['Shougo/vimproc'],
+           \ 'depends': ['Shougo/vimproc.vim'],
            \ 'autoload' : {
            \   'commands' : ['AlpacaTagsSet', 'AlpacaTagsBundle', 'AlpacaTagsCleanCache', 'AlpacaTagsUpdate'],
            \ }}
