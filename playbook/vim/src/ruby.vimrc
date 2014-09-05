@@ -36,7 +36,7 @@ NeoBundle 'amdt/vim-niji'
 
 
     "ruby--------------------------------------------------
-    NeoBundleLazy 'Shougo/neosnippet', {
+    NeoBundle 'Shougo/neosnippet', {
           \ 'autoload' : {
           \   'commands' : ['NeoSnippetEdit', 'NeoSnippetSource'],
           \   'filetypes' : 'snippet',
@@ -47,16 +47,16 @@ NeoBundle 'amdt/vim-niji'
     NeoBundle 'tpope/vim-rails', { 'autoload' : {
           \ 'filetypes' : ['haml', 'ruby', 'eruby'] }}
      
-    NeoBundleLazy 'alpaca-tc/vim-endwise.git', {
+    NeoBundle 'alpaca-tc/vim-endwise.git', {
           \ 'autoload' : {
           \   'insert' : 1,
           \ }}
      
-    NeoBundleLazy 'edsono/vim-matchit', { 'autoload' : {
+    NeoBundle 'edsono/vim-matchit', { 'autoload' : {
           \ 'filetypes': 'ruby',
           \ 'mappings' : ['nx', '%'] }}
      
-    NeoBundleLazy 'basyura/unite-rails', {
+    NeoBundle 'basyura/unite-rails', {
           \ 'depends' : 'Shougo/unite.vim',
           \ 'autoload' : {
           \   'unite_sources' : [
@@ -69,19 +69,19 @@ NeoBundle 'amdt/vim-niji'
           \   ]
           \ }}
      
-    NeoBundleLazy 'alpaca-tc/neorspec.vim', {
+    NeoBundle 'alpaca-tc/neorspec.vim', {
           \ 'depends' : ['alpaca-tc/vim-rails', 'tpope/vim-dispatch'],
           \ 'autoload' : {
           \   'commands' : ['RSpec', 'RSpecAll', 'RSpecCurrent', 'RSpecNearest', 'RSpecRetry']
           \ }}
      
-    NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+    NeoBundle 'alpaca-tc/alpaca_tags', {
           \ 'depends': 'Shougo/vimproc',
           \ 'autoload' : {
           \   'commands': ['TagsUpdate', 'TagsSet', 'TagsBundle']
           \ }}
      
-    NeoBundleLazy 'tsukkee/unite-tag', {
+    NeoBundle 'tsukkee/unite-tag', {
           \ 'depends' : ['Shougo/unite.vim'],
           \ 'autoload' : {
           \   'unite_sources' : ['tag', 'tag/file', 'tag/include']
