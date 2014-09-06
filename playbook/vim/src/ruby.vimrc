@@ -70,7 +70,7 @@ NeoBundle 'amdt/vim-niji'
          " autoupdate tags  when  save file
          augroup AlpacaTags
              autocmd!
-             if exists(':AlpacaTagsUpdate')
+             if exists(':AlpacaTags')
                  autocmd BufWritePost Gemfile AlpacaTagsBundle
                  autocmd BufEnter * AlpacaTagsSet
                  autocmd BufWritePost * AlpacaTagsUpdate
@@ -128,6 +128,7 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
   " neocomplete for ruby
   let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+  let g:neocomplete#sources#include#patterns.ruby = '^\s*\<\%(load\|require\|require_relative\)\>'
 endif
 
 " Enable omni completion.
