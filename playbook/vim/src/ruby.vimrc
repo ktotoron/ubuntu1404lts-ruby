@@ -1,6 +1,6 @@
 "Vim------------------------------------
 set nocompatible
-filetype plugin indent off 
+filetype plugin indent off
 "/Vim------------------------------------
 
 
@@ -36,51 +36,17 @@ NeoBundle 'amdt/vim-niji'
 
 
     "ruby--------------------------------------------------
-    NeoBundle 'Shougo/neosnippet', {
-          \ 'autoload' : {
-          \   'commands' : ['NeoSnippetEdit', 'NeoSnippetSource'],
-          \   'filetypes' : 'snippet',
-          \   'insert' : 1,
-          \   'unite_sources' : ['snippet', 'neosnippet/user', 'neosnippet/runtime'],
-          \ }}
-     
-    NeoBundle 'tpope/vim-rails', { 'autoload' : {
-          \ 'filetypes' : ['haml', 'ruby', 'eruby'] }}
-     
-    NeoBundle 'alpaca-tc/vim-endwise.git', {
-          \ 'autoload' : {
-          \   'insert' : 1,
-          \ }}
-     
-    NeoBundle 'edsono/vim-matchit', { 'autoload' : {
-          \ 'filetypes': 'ruby',
-          \ 'mappings' : ['nx', '%'] }}
-     
-    NeoBundle 'basyura/unite-rails', {
-          \ 'depends' : 'Shougo/unite.vim',
-          \ 'autoload' : {
-          \   'unite_sources' : [
-          \     'rails/bundle', 'rails/bundled_gem', 'rails/config',
-          \     'rails/controller', 'rails/db', 'rails/destroy', 'rails/features',
-          \     'rails/gem', 'rails/gemfile', 'rails/generate', 'rails/git', 'rails/helper',
-          \     'rails/heroku', 'rails/initializer', 'rails/javascript', 'rails/lib', 'rails/log',
-          \     'rails/mailer', 'rails/model', 'rails/rake', 'rails/route', 'rails/schema', 'rails/spec',
-          \     'rails/stylesheet', 'rails/view'
-          \   ]
-          \ }}
-     
-    NeoBundle 'alpaca-tc/neorspec.vim', {
-          \ 'depends' : ['alpaca-tc/vim-rails', 'tpope/vim-dispatch'],
-          \ 'autoload' : {
-          \   'commands' : ['RSpec', 'RSpecAll', 'RSpecCurrent', 'RSpecNearest', 'RSpecRetry']
-          \ }}
-     
-    NeoBundle 'alpaca-tc/alpaca_tags', {
-           \ 'rev' : 'v2.0',
-           \ 'depends': ['Shougo/vimproc.vim'],
-           \ 'autoload' : {
-           \   'commands' : ['AlpacaTagsSet', 'AlpacaTagsBundle', 'AlpacaTagsCleanCache', 'AlpacaTagsUpdate'],
-           \ }}
+
+    NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+                  \    'depends': ['Shougo/vimproc.vim'],
+                  \    'autoload' : {
+                  \       'commands' : [
+                  \          { 'name' : 'AlpacaTagsBundle', 'complete': 'customlist,alpaca_tags#complete_source' },
+                  \          { 'name' : 'AlpacaTagsUpdate', 'complete': 'customlist,alpaca_tags#complete_source' },
+                  \          'AlpacaTagsSet', 'AlpacaTagsCleanCache', 'AlpacaTagsEnable', 'AlpacaTagsDisable', 'AlpacaTagsKillProcess', 'AlpacaTagsProcessStatus',
+                  \       ],
+                  \    }
+                  \ }
 
         "alpaca-tc/alpaca_tags--------------------------------------------------
         let g:alpaca_tags#config = {
@@ -100,19 +66,19 @@ NeoBundle 'amdt/vim-niji'
                 \ '-coffee': '--languages=-coffee',
                 \ 'bundle': '--languages=+Ruby',
                 \ }
+
+         " autoupdate tags  when  save file
+         augroup AlpacaTags
+             autocmd!
+             if exists(':AlpacaTagsUpdate')
+                 autocmd BufWritePost Gemfile AlpacaTagsBundle
+                 autocmd BufEnter * AlpacaTagsSet
+                 autocmd BufWritePost * AlpacaTagsUpdate
+             endif
+         augroup END
         "/alpaca-tc/alpaca_tags--------------------------------------------------
- 
-    NeoBundle 'tsukkee/unite-tag', {
-          \ 'depends' : ['Shougo/unite.vim'],
-          \ 'autoload' : {
-          \   'unite_sources' : ['tag', 'tag/file', 'tag/include']
-          \ }}
-    
+
     "/ruby--------------------------------------------------
-
-
-
-
 
 "/NeoBundle-------------------------------------
 
@@ -162,7 +128,6 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
   " neocomplete for ruby
   let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-  let g:neocomplete#omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 endif
 
 " Enable omni completion.
@@ -174,6 +139,5 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 
 "/NeoComplete-------------------------------------
-
 
 
