@@ -83,7 +83,7 @@ NeoBundle 'amdt/vim-niji'
            \ }}
 
         "alpaca-tc/alpaca_tags--------------------------------------------------
-        let g:alpaca_tags_config = {
+        let g:alpaca_tags#config = {
                 \ '_' : '-R --sort=yes --languages=+Ruby --languages=-js,JavaScript',
                 \ 'default' : '--languages=-css,scss,html,js,JavaScript',
                 \ 'js' : '--languages=+js',
@@ -162,6 +162,7 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
   " neocomplete for ruby
   let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+  let g:neocomplete#omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 endif
 
 " Enable omni completion.
