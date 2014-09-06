@@ -117,11 +117,19 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 " set omni heavy
 let g:neocomplete#sources#omni#input_patterns = 1
 
+
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
   let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'ruby' : '~/.vim/dict/ruby/1.9.3p547/ruby.dict',
+    \ }
+
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
