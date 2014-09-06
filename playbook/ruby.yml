@@ -53,7 +53,7 @@
   sudo_user: vagrant
 
 - name: Install rubydict
-  shell: ~/.rbenv/shims/ruby /tmp/makedict.rb > ~/.vim/dict/ruby/1.9.3p547/ruby.dict
+  shell: ~/.rbenv/shims/ruby /tmp/makedict.rb ~/.rbenv/versions/1.9.3-p547  >  ~/.vim/dict/ruby/1.9.3p547/ruby.dict
   sudo: yes
   sudo_user: vagrant
 

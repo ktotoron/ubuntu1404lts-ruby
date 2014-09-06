@@ -2,7 +2,7 @@
 
 require 'uri'
 
-# ./makedict.rb  ~/.rbenv/versions/1.9.3-p547 > /.vim/dict/ruby/1.9.3p547/ruby.dict
+# ./makedict.rb  ~/.rbenv/versions/1.9.3-p547 > ~/.vim/dict/ruby/1.9.3p547/ruby.dict
    
    
 if ARGV.size != 1
