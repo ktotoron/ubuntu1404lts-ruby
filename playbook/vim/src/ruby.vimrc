@@ -70,7 +70,7 @@ NeoBundle 'amdt/vim-niji'
          " autoupdate tags  when  save file
          augroup AlpacaTags
              autocmd!
-             if exists(':AlpacaTagsUpdate')
+             if exists(':AlpacaTags')
                  autocmd BufWritePost Gemfile AlpacaTagsBundle
                  autocmd BufEnter * AlpacaTagsSet
                  autocmd BufWritePost * AlpacaTagsUpdate
