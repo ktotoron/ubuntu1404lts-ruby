@@ -37,7 +37,7 @@ NeoBundle 'amdt/vim-niji'
 
     "ruby--------------------------------------------------
 
-    NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+    NeoBundle 'alpaca-tc/alpaca_tags', {
                   \    'depends': ['Shougo/vimproc.vim'],
                   \    'autoload' : {
                   \       'commands' : [
