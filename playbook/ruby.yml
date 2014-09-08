@@ -41,9 +41,23 @@
   sudo: yes
   sudo_user: vagrant
 
-#
-# rbenv rehash
-# rbenv global 1.9.3-p547
+
+- name: create ruby dict directory
+  file: path=~/.vim/dict/ruby/1.9.3p547/ state=directory
+  sudo: yes
+  sudo_user: vagrant
+
+- name: copy makedict.rb
+  copy: src=./ruby/makedict.rb dest=/tmp/makedict.rb
+  sudo: yes
+  sudo_user: vagrant
+
+- name: Install rubydict
+  shell: ~/.rbenv/shims/ruby /tmp/makedict.rb ~/.rbenv/versions/1.9.3-p547  >  ~/.vim/dict/ruby/1.9.3p547/ruby.dict
+  sudo: yes
+  sudo_user: vagrant
+
+
 
 
 
