@@ -1,0 +1,16 @@
+---
+
+# essential.yml
+
+- name: Update pkgs
+  apt: update_cache=yes
+
+- name: Upgrade pkgs
+  apt: upgrade=full
+
+- name: Install basic server pkgs
+  apt: pkg={{ item }} force=yes update_cache=yes
+  with_items:
+    - build-essential
+    - git
+
