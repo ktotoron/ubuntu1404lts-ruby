@@ -58,6 +58,11 @@
   sudo_user: vagrant
 
 
+- name: Install nodejs and sqlite3
+  apt: pkg={{ item }} force=yes update_cache=yes
+  with_items:
+    - nodejs
+    - sqlite3
 
 
 
