@@ -127,7 +127,7 @@ let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : '',
-    \ 'ruby' : '~/.vim/dict/ruby/1.9.3p547/ruby.dict',
+    \ 'ruby' : '~/.vim/dict/ruby/2.1.2/ruby.dict',
     \ }
 
 
