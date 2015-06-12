@@ -62,7 +62,12 @@
   apt: pkg={{ item }} force=yes update_cache=yes
   with_items:
     - nodejs
+    - npm
     - sqlite3
+
+- name: install javascript develop
+  shell: sudo npm install -g yo grunt-cli bower
+
 
 
 
